@@ -1,0 +1,24 @@
+const mongoose = require('mongoose');
+const { DB_URL } = require('../config');
+
+
+
+module.exports = async() => {
+
+    try {
+        await mongoose.connect(DB_URL, {
+            useNewUrlParser: true,
+            useUnifiedTopology: true,
+            // useCreateIndex: true
+        });
+        console.log('Db Connected', process.env.NODE_ENV);
+        
+    } catch (error) {
+        console.log('Error ============')
+        console.log(error);
+        process.exit(1);
+    }
+ 
+};
+
+ 
